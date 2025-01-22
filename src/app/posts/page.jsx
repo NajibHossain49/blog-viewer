@@ -1,16 +1,13 @@
-// app/page.js
 import Link from 'next/link';
 
 // Mock API function
 async function getPosts() {
-  // Simulating API delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  
-  return [
-    { id: 1, title: 'Getting Started with Next.js', slug: 'getting-started-nextjs' },
-    { id: 2, title: 'Understanding React Server Components', slug: 'react-server-components' },
-    { id: 3, title: 'The Power of Dynamic Routing', slug: 'dynamic-routing' },
-  ];
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  if (!res.ok) {
+    throw new Error('Failed to fetch posts');
+  }
+  const data = await res.json();
+  return data;
 }
 
 export default async function Home() {
@@ -22,7 +19,7 @@ export default async function Home() {
       <div className="space-y-4">
         {posts.map(post => (
           <article key={post.id} className="border rounded-lg p-4 hover:bg-gray-50">
-            <Link href={`/posts/${post.slug}`} className="text-xl text-blue-600 hover:text-blue-800">
+            <Link href={`/posts/${post.id}`} className="text-xl text-blue-600 hover:text-blue-800">
               {post.title}
             </Link>
           </article>
