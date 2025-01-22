@@ -1,4 +1,3 @@
-// components/AuthButton.js
 "use client";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
