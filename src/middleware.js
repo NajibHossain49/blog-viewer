@@ -6,9 +6,9 @@ export default withAuth(
     // return NextResponse.next();
     const res=NextResponse.next();
     // Add CORS headers
-    response.headers.set("Access-Control-Allow-Origin", "https://blog-viewer-livid.vercel.app");
-    response.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    response.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.headers.set("Access-Control-Allow-Origin", "https://blog-viewer-livid.vercel.app");
+    res.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
     return res;
   },
