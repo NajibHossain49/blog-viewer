@@ -8,8 +8,8 @@ export default withAuth(
   {
     // Add the routes to protect
     callbacks: {
-      authorized: ({ req, token }) => {
-        return token !== null;
+      authorized: ({ req }) => {
+        return true;
       },
     },
   }
